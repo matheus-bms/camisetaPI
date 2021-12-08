@@ -25,8 +25,8 @@ router.get('/contact-us', function(req, res, next) {
   res.render('contact-us');
 });
 
-router.get('/', function(req, res, next) {
-  res.render('index');
+router.get('/home', function(req, res, next) {
+  res.render('home');
 });
 
 router.get('/login', function(req, res, next) {
