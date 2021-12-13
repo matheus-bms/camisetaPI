@@ -13,8 +13,8 @@ router.get('/blog', function(req, res, next) {
   res.render('blog');
 });
 
-router.get('/cart', function(req, res, next) {
-  res.render('cart');
+router.get('/carrinho', function(req, res, next) {
+  res.render('carrinho');
 });
 
 router.get('/checkout', function(req, res, next) {
