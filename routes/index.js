@@ -21,8 +21,8 @@ router.get('/checkout', function(req, res, next) {
   res.render('checkout');
 });
 
-router.get('/contact-us', function(req, res, next) {
-  res.render('contact-us');
+router.get('/contato', function(req, res, next) {
+  res.render('contato');
 });
 
 router.get('/home', function(req, res, next) {
