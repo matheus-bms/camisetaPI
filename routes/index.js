@@ -33,8 +33,8 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-router.get('/product-details', function(req, res, next) {
-  res.render('product-details');
+router.get('/detalhes-do-produto', function(req, res, next) {
+  res.render('detalhes-do-produto');
 });
 
 router.get('/shop', function(req, res, next) {
