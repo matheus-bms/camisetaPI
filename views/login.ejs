@@ -26,9 +26,9 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Novo usuário!</h2>
-						<form action="#">
-							<input type="text" placeholder="Nome"/>
-							<input type="email" placeholder="Email"/>
+						<form action="/cadastro" method="post" > 
+							<input type="text" placeholder="Nome" name='nome'/>
+							<input type="email" placeholder="Email" name='email'/>
 							<input type="password" placeholder="Senha"/>
 							<input type="password" placeholder="Repita a senha"/>
 							<button type="submit" class="btn btn-default">Confirmar</button>

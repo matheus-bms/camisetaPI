@@ -1,6 +1,7 @@
 const sequelize = require('sequelize');
-const User = require('../models/User')
+const User = require('./User')
 const connection = new sequelize(dbConfig);
+
 
 User.init(connection)
 

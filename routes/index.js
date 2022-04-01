@@ -1,5 +1,5 @@
 var express = require('express');
-const { routes } = require('../app');
+const controller = require('../controller/UserController')
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
@@ -30,14 +30,9 @@ router.get('/contato', function(req, res, next) {
   res.render('contato');
 });
 
-router.get('/home', function(req, res, next) {
-  res.render('home');
-});
-
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
-
+router.get('/home', controller.renderizaHome);
+router.get('/login', controller.formularioLogin);
+router.post('/cadastro', controller.store)
 router.get('/detalhes-do-produto', function(req, res, next) {
   res.render('detalhes-do-produto');
 });

@@ -1,11 +1,17 @@
-const User = require('../models/User')
+const {User} = require('../models')
 module.exports = {
-    async store(req, res){
-        const { name, email} = req.body;
+     store: async (req, res)=> {
+        const { nome, email} = req.body;
 
-        const user = await User.create({name, email});
+        const user = await User.create({nome, login: email});
 
         return res.json(user)
 
+    }, 
+    formularioLogin: function(req, res) {
+  res.render('login');
+    },
+    renderizaHome: function(req, res) {
+  res.render('home'); 
     }
 }
