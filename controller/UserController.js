@@ -13,23 +13,26 @@ module.exports = {
     },
     renderizaHome: function(req, res) {
   res.render('home'); 
-    },
-   renderizarContato: function(req, res) {
+   },
+    renderizarContato: function(req, res) {
   res.render('contato');
    },
-   renderizarCheckout: function(req, res) {
+    renderizarCheckout: function(req, res) {
   res.render('checkout');
-},
- renderizarCarrinho: function(req, res) {
+   },
+    renderizarCarrinho: function(req, res) {
   res.render('carrinho');
- },
- renderizerBlog: function(req, res) {
+   },
+    renderizerBlog: function(req, res) {
   res.render('blog');
-},
-renderizerBlogSingle: function(req, res) {
+   },
+    renderizerBlogSingle: function(req, res) {
   res.render('blog-single');
-},
-renderizar404: function(req, res) {
+   },
+    renderizar404: function(req, res) {
   res.render('404');
+},
+    renderizarShop: function(req, res, next) {
+  res.render('shop');
 }
-}
+};
