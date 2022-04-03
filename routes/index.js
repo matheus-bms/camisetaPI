@@ -2,34 +2,16 @@ var express = require('express');
 const controller = require('../controller/UserController')
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.redirect('/home');
 });
 
-router.get('/404', function(req, res, next) {
-  res.render('404');
-});
-
-router.get('/blog-single', function(req, res, next) {
-  res.render('blog-single');
-});
-
-router.get('/blog', function(req, res, next) {
-  res.render('blog');
-});
-
-router.get('/carrinho', function(req, res, next) {
-  res.render('carrinho');
-});
-
-router.get('/checkout', function(req, res, next) {
-  res.render('checkout');
-});
-
-router.get('/contato', function(req, res, next) {
-  res.render('contato');
-});
-
+router.get('/404', controller.renderizerBlogSingle);
+router.get('/blog-single', controller.renderizerBlogSingle);
+router.get('/blog', controller.renderizerBlog);
+router.get('/carrinho', controller.renderizarCarrinho);
+router.get('/checkout', controller.renderizarCheckout);
+router.get('/contato', controller.renderizarContato);
 router.get('/home', controller.renderizaHome);
 router.get('/login', controller.formularioLogin);
 router.post('/cadastro', controller.store)
