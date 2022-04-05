@@ -1,5 +1,6 @@
 const sequelize = require('sequelize');
-const User = require('./User')
+const DbConfig = require('../camisetaPI');
+const User = require('/User')
 const connection = new sequelize(DbConfig);
 
 

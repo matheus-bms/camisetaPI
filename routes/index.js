@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
   res.redirect('/home');
 });
 router.get('/shop', controller.renderizarShop);
-router.get('/404', controller.renderizerBlogSingle);
+router.get('/404', controller.renderizar404);
 router.get('/blog-single', controller.renderizerBlogSingle);
 router.get('/blog', controller.renderizerBlog);
 router.get('/carrinho', controller.renderizarCarrinho);

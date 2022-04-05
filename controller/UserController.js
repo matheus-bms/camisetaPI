@@ -1,4 +1,4 @@
-const {User} = require('../models')
+const {User} = require('../models/')
 module.exports = {
      store: async (req, res)=> {
         const { nome, email} = req.body;
@@ -13,7 +13,7 @@ module.exports = {
     },
     renderizaHome: function(req, res) {
   res.render('home'); 
-   },
+    },
     renderizarContato: function(req, res) {
   res.render('contato');
    },
@@ -32,7 +32,7 @@ module.exports = {
     renderizar404: function(req, res) {
   res.render('404');
 },
-    renderizarShop: function(req, res, next) {
+    renderizarShop: function(req, res) {
   res.render('shop');
-}
+    },
 };
