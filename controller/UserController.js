@@ -1,4 +1,4 @@
-const {User} = require('../models/')
+const {User} = require('../models/User')
 module.exports = {
      store: async (req, res)=> {
         const { nome, email} = req.body;
