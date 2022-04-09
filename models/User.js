@@ -1,17 +1,30 @@
-const {Model, DataTypes} = require('sequelize');
+const {Model} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+
+
 
 class User extends Model {
-    static init(connection){
-        super.init({
-            nome: DataTypes.STRING,
-            login: DataTypes.STRING,
-        }, {
-            sequelize: connection,
-            tableName:'usuarios', 
-            freezeTableName: true
-        })
+    static associate(models){
+        
     }
+   
+     
+    
 
 }
-
-module.exports = User;
+   User.init({
+            nome: DataTypes.STRING,
+            login: DataTypes.STRING,
+            nascimento: DataTypes.DATEONLY,
+            senha: DataTypes.STRING,
+            numero: DataTypes.STRING,
+            validade: DataTypes.STRING,
+            condigoSeguranca: DataTypes.STRING
+        }, {
+            sequelize,
+            tableName:'usuarios', 
+            freezeTableName: true,
+            timestamps: false,
+        })
+return User;
+}

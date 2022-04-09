@@ -9,9 +9,9 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Fazer login</h2>
-						<form action="#">
-							<input type="text" placeholder="Nome" />
-							<input type="email" placeholder="Email" />
+						<form action="/login/login" method="post">
+							<input type="email" placeholder="email" name="email" />
+							<input type="password" placeholder="senha" name="senha"/>
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Mantenha-me conectado
@@ -29,8 +29,7 @@
 						<form action="/cadastro" method="post" > 
 							<input type="text" placeholder="Nome" name='nome'/>
 							<input type="email" placeholder="Email" name='email'/>
-							<input type="password" placeholder="Senha"/>
-							<input type="password" placeholder="Repita a senha"/>
+							<input type="password" placeholder="Senha" name='senha'/>
 							<button type="submit" class="btn btn-default">Confirmar</button>
 						</form>
 					</div><!--/sign up form-->

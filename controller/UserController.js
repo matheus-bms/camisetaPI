@@ -1,13 +1,22 @@
 const {User} = require('../models')
 module.exports = {
      store: async (req, res)=> {
-        const { nome, email} = req.body;
+        const { nome, email, senha} = req.body;
 
-        const user = await User.create({nome, login: email});
+        const user = await User.create({nome, login: email, senha});
 
         return res.json(user)
 
     }, 
+    fazerLogin: async function (req, res) {
+      const {email, senha} = req.body;
+      const usuario = await User.findOne({where:{login: email}})
+
+      return  res.json(usuario)
+    },
+    comprarAgora: function(req, res){
+      res.render('compras')
+    },
     formularioLogin: function(req, res) {
   res.render('login');
     },
