@@ -17,9 +17,12 @@ class User extends Model {
             login: DataTypes.STRING,
             nascimento: DataTypes.DATEONLY,
             senha: DataTypes.STRING,
-            numero: DataTypes.STRING,
-            validade: DataTypes.STRING,
-            condigoSeguranca: DataTypes.STRING
+            contato: DataTypes.STRING,
+            shop: DataTypes.STRING,
+            detalhesDoProduto: DataTypes.STRING,
+            checkout: DataTypes.STRING,
+            carrinho:DataTypes.STRING
+
         }, {
             sequelize,
             tableName:'usuarios', 
