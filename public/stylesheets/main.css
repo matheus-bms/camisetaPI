@@ -1574,7 +1574,7 @@ h2.title {
 }
 
 #cart_items .cart_info .table.table-condensed tr {
-    border-bottom: 1px solid#F7F7F0
+    border-bottom: 1px solid #F7F7F0;
 }
 
 #cart_items .cart_info .table.table-condensed tr:last-child {
@@ -1726,7 +1726,7 @@ h2.title {
 
 .user_info .single_field.zip-field input {
     background: transparent;
-    border: 1px solid#F0F0E9
+    border: 1px solid #F0F0E9;
 }
 
 .user_info>li {
@@ -2324,7 +2324,7 @@ textarea {
 
 .text-area textarea {
     background: transparent;
-    border: 1px solid#F7F7F0
+    border: 1px solid #F7F7F0;
 }
 
 .btn.btn-primary {
