@@ -1,6 +1,7 @@
 var express = require('express');
 const controller = require('../controller/UserController')
 var router = express.Router();
+const carrinho = require('../controller/carrinho');
 
 router.get('/', function(req, res) {
   res.redirect('/home');
