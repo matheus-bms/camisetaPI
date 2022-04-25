@@ -10,9 +10,9 @@ module.exports = {
     }, 
     fazerLogin: async function (req, res) {
       const {email, senha} = req.body;
-      const usuario = await User.findOne({where:{login: email}})
+      const users = await User.findOne({where:{login: email}})
 
-      return  res.json(usuario)
+      return  res.json(users)
     },
     comprarAgora: function(req, res){
       res.render('compras')
@@ -29,8 +29,8 @@ module.exports = {
     renderizarCheckout: function(req, res) {
   res.render('checkout');
    },
-    renderizarCarrinho: function(req, res) {
-  res.render('carrinho');
+    renderizarCart: function(req, res) {
+  res.render('cart');
    },
     renderizerBlog: function(req, res) {
   res.render('blog');
