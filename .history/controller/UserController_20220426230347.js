@@ -8,12 +8,12 @@ module.exports = {
         return res.json(user)
 
     },
-     checkout: async function (req, res) {
+     fazerLogin: async function (req, res) {
       const {email, senha} = req.body;
-      const checkout = await User.findOne({where:{login: email}})
+      const users = await User.findOne({where:{login: email}})
 
-      return  res.json(checkout)},
-
+      return  res.json(users)},
+      
     fazerLogin: async function (req, res) {
       const {email, senha} = req.body;
       const users = await User.findOne({where:{login: email}})
@@ -21,10 +21,7 @@ module.exports = {
       return  res.json(users)
     },
     comprarAgora: function(req, res){
-      res.send('compras')
-      },
-    renderizarcompras: function(req, res){
-      res.send('compras')
+      res.render('compras')
     },
     formularioLogin: function(req, res) {
   res.render('login');

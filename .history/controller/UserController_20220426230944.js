@@ -21,10 +21,7 @@ module.exports = {
       return  res.json(users)
     },
     comprarAgora: function(req, res){
-      res.send('compras')
-      },
-    renderizarcompras: function(req, res){
-      res.send('compras')
+      res.render('compras')
     },
     formularioLogin: function(req, res) {
   res.render('login');

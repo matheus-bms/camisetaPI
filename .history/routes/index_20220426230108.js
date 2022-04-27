@@ -17,7 +17,6 @@ router.get('/contato', controller.renderizarContato);
 router.get('/home', controller.renderizaHome);
 router.get('/login', controller.formularioLogin);
 router.post('/login', controller.fazerLogin);
-router.get('/compras', controller.renderizarcompras);
 router.post('/compras', controller.comprarAgora);
 router.post('/cadastro', controller.store)
 router.get('/detalhes-do-produto', function(req, res) {

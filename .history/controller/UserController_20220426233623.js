@@ -21,10 +21,10 @@ module.exports = {
       return  res.json(users)
     },
     comprarAgora: function(req, res){
-      res.send('compras')
+      res.render('compras')
       },
-    renderizarcompras: function(req, res){
-      res.send('compras')
+    renderizar: function(req, res){
+      res.render('compras')
     },
     formularioLogin: function(req, res) {
   res.render('login');
