@@ -59,7 +59,7 @@ module.exports = {
       cancelarCompra: function(req, res) {
   res.render('compras');
       },
-       renderizarShop: function(req, res) {
-  res.render('shop');
+       cancelarCompra: function(req, res) {
+  res.render('compras');
       },
 };

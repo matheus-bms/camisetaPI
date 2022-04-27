@@ -1442,7 +1442,7 @@ h2.title {
 
 .login-form h2,
 .signup-form h2 {
-    color: #696763;
+    color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 300;
@@ -1596,7 +1596,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_description h4 a {
-    color: #363432;
+    color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: normal;
@@ -1607,7 +1607,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_price p {
-    color: #696763;
+    color: #FFFFFF;
     font-size: 18px
 }
 
@@ -1666,7 +1666,7 @@ h2.title {
 }
 
 .heading h3 {
-    color: #363432;
+    color: #FFFFFF;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
 }
@@ -1701,7 +1701,7 @@ h2.title {
 }
 
 .user_option label {
-    color: #696763;
+    color: #FFFFFF;
     font-weight: normal;
     margin-left: 10px;
 }
@@ -1714,7 +1714,7 @@ h2.title {
 }
 
 .user_info label {
-    color: #696763;
+    color: #FFFFFF;
     display: block;
     font-size: 15px;
     font-weight: normal;
@@ -1798,7 +1798,7 @@ textarea {
 }
 
 .checkout-options h3 {
-    color: #363432;
+    color: #FFFFFF;
     font-size: 20px;
     margin-bottom: 0;
     font-weight: normal;
@@ -1806,7 +1806,7 @@ textarea {
 }
 
 .checkout-options p {
-    color: #434343;
+    color: #FFFFFF;
     font-weight: 300;
     margin-bottom: 25px;
 }
@@ -1814,7 +1814,7 @@ textarea {
 .checkout-options .nav li {
     float: left;
     margin-right: 45px;
-    color: #696763;
+    color: #FFFFFF;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
@@ -1825,7 +1825,7 @@ textarea {
 }
 
 .checkout-options .nav li a {
-    color: #FE980F;
+    color: #FFFFFF;
     font-size: 18px;
     font-weight: normal;
     padding: 0
@@ -1859,7 +1859,7 @@ textarea {
 .shopper-info p,
 .bill-to p,
 .order-message p {
-    color: #696763;
+    color: #FFFFFF;
     font-size: 20px;
     font-weight: 300
 }
@@ -1907,14 +1907,14 @@ textarea {
 
 .order-message label {
     font-weight: 300;
-    color: #696763;
+    color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     margin-left: 10px;
     font-size: 14px
 }
 
 .review-payment h2 {
-    color: #696763;
+    color: #FFFFFF;
     font-size: 20px;
     font-weight: 300;
     margin-top: 45px;
@@ -1927,7 +1927,7 @@ textarea {
 }
 
 .payment-options span label {
-    color: #696763;
+    color: #FFFFFF;
     font-size: 14px;
     font-weight: 300;
     margin-right: 30px;

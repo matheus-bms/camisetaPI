@@ -60,6 +60,6 @@ module.exports = {
   res.render('compras');
       },
        renderizarShop: function(req, res) {
-  res.render('shop');
+  res.render('compras');
       },
 };
