@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
         shop: DataTypes.STRING,
         detalhesdoproduto: DataTypes.STRING,
         checkout: DataTypes.STRING,
-        cart: DataTypes.STRING,
-        compras: DataTypes.STRING
+        cart: DataTypes.STRING
+        compras
 
     }, {
         sequelize,

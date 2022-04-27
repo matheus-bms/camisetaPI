@@ -57,6 +57,6 @@ module.exports = {
   res.render('compras');
     },
       cancelarCompra: function(req, res) {
-  res.render('compras');
+  res.render('shop');
       },
 };

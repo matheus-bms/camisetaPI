@@ -1,3 +1,4 @@
+
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
@@ -26,12 +27,12 @@ module.exports = (sequelize, DataTypes) => {
         shop: DataTypes.STRING,
         detalhesdoproduto: DataTypes.STRING,
         checkout: DataTypes.STRING,
-        cart: DataTypes.STRING,
-        compras: DataTypes.STRING
+        cart: DataTypes.STRING
 
     }, {
         sequelize,
-        tableName: 'users',
+        modelName: 'User',
+        tableName: 'checkout',
         freezeTableName: true,
         timestamps: false,
 

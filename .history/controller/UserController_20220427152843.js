@@ -53,10 +53,14 @@ module.exports = {
     renderizar404: function(req, res) {
   res.render('404');
 },
-    renderizarCompraConcluir: function(req, res) {
-  res.render('compras');
+    renderizarCompraConcl: function(req, res) {
+  res.render('shop');
     },
-      cancelarCompra: function(req, res) {
-  res.render('compras');
-      },
+      renderizarShop: function(req, res) {
+  res.render('shop');
+    },  renderizarShop: function(req, res) {
+  res.render('shop');
+    },  renderizarShop: function(req, res) {
+  res.render('shop');
+    },
 };

@@ -54,9 +54,9 @@ module.exports = {
   res.render('404');
 },
     renderizarCompraConcluir: function(req, res) {
-  res.render('compras');
+  res.render('shop');
     },
       cancelarCompra: function(req, res) {
-  res.render('compras');
-      },
+  res.render('shop');
+        
 };

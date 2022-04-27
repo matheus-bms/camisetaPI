@@ -20,6 +20,9 @@ router.post('/login', controller.fazerLogin);
 router.get('/compras', controller.renderizarcompras);
 router.post('/compras', controller.comprarAgora);
 router.post('/cadastro', controller.store)
+router.get('/', validateSchema(model.schemaGet), controller.get)
+router.get('/:id', validateSchema(model.schemaGetOne), controller.getOne)
+router.post('/', authentication.checkToken, validateSchema(model.schemaPost), controller.post)
 router.delete('/concluir-compra', controller.renderizarCompraConcluir)
 router.delete('/cancelar-compra', controller.cancelarCompra)
 router.get('/detalhes-do-produto', function(req, res) {

@@ -53,10 +53,12 @@ module.exports = {
     renderizar404: function(req, res) {
   res.render('404');
 },
-    renderizarCompraConcluir: function(req, res) {
-  res.render('compras');
+    renderizarShop: function(req, res) {
+  res.render('shop');
     },
-      cancelarCompra: function(req, res) {
-  res.render('compras');
-      },
+    router.get('/', validateSchema(model.schemaGet), controller.get)
+router.get('/:id', validateSchema(model.schemaGetOne), controller.getOne)
+router.post('/', authentication.checkToken, validateSchema(model.schemaPost), controller.post)
+router.delete('/concluir-compra', authentication.checkToken, controller.concluirCompra)
+router.delete('/cancelar-compra', authentication.checkToken, controller.cancelarCompra)
 };
