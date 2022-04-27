@@ -1,48 +1,26 @@
 var express = require('express');
+const controller = require('../controller/UserController')
 var router = express.Router();
+const carrinho = require('../controller/carrinho');
 
-router.get('/', function(req, res, next) {
-  res.redirect('home');
+
+router.get('/', function(req, res) {
+  res.redirect('/home');
 });
-
-router.get('/404', function(req, res, next) {
-  res.render('404');
-});
-
-router.get('/blog-single', function(req, res, next) {
-  res.render('blog-single');
-});
-
-router.get('/blog', function(req, res, next) {
-  res.render('blog');
-});
-
-router.get('/carrinho', function(req, res, next) {
-  res.render('carrinho');
-});
-
-router.get('/checkout', function(req, res, next) {
-  res.render('checkout');
-});
-
-router.get('/contato', function(req, res, next) {
-  res.render('contato');
-});
-
-router.get('/home', function(req, res, next) {
-  res.render('home');
-});
-
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
-
-router.get('/detalhes-do-produto', function(req, res, next) {
+router.get('/shop', controller.renderizarShop);
+router.get('/404', controller.renderizar404);
+router.get('/blog-single', controller.renderizerBlogSingle);
+router.get('/blog', controller.renderizerBlog);
+router.get('/carrinho', controller.renderizarCarrinho);
+router.get('/checkout', controller.renderizarCheckout);
+router.get('/contato', controller.renderizarContato);
+router.get('/home', controller.renderizaHome);
+router.get('/login', controller.formularioLogin);
+router.post('/login', controller.fazerLogin);
+router.post('/compras', controller.comprarAgora);
+router.post('/cadastro', controller.store)
+router.get('/detalhes-do-produto', function(req, res) {
   res.render('detalhes-do-produto');
-});
-
-router.get('/shop', function(req, res, next) {
-  res.render('shop');
 });
 
 module.exports = router;
