@@ -1,24 +1,30 @@
+const express = require('express');
+
 const {User} = require('../models')
+
+const fazerLogin = express.Router(); 
+
+const EXPIRE = 300 * 1000 
+
 module.exports = {
      store: async (req, res)=> {
         const { nome, email, senha} = req.body;
 
-        const user = await User.create({nome, login: email, senha});
+        const user = await User.create({nome, login: email, senha: senha});
 
         return res.json(user)
 
     },
      checkout: async function (req, res) {
       const {email, senha} = req.body;
-      const checkout = await User.findOne({where:{login: email}})
+      const checkout = await User.findOne({where:{login: email , senha: senha}});
 
       return  res.json(checkout)},
 
     fazerLogin: async function (req, res) {
       const {email, senha} = req.body;
-      const users = await User.findOne({where:{login: email}})
+      const users = await User.findOne({where:{login: email , senha: senha}});
 
-      return  res.json(users)
     },
     comprarAgora: function(req, res){
       res.send('compras')
