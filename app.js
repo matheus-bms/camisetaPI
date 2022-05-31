@@ -1,7 +1,9 @@
+const dotenv = require('dotenv')
+dotenv.config()
+const path = require('path');
 const createError = require('http-errors');
 const express = require('express');
 const session = require('express-session');
-const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
@@ -10,8 +12,6 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,9 +19,21 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: process.env.MEU_PROJETO,   // Configurando dot env. (Variavel de Ambiente)
+  resave: false,
+  saveUninitialized: false,
+  name: process.env.COOKIE, // Configurando dot env. (Variavel de Ambiente)
+  resave: false,
+  cookie: {
+      httpOnly: true,
+      secure: false,
+  }
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -29,16 +41,7 @@ app.use('/login', indexRouter);
 app.use('/checkout', indexRouter);
 
 
-app.use(session({
-  secret: 'xc bvhzksfgvbhgjbmknjlhdbfgkjfdnmklfdngjhdsbkeyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  name: 'vb zdfgkljh mtyçjl,grenhkjdvui',
-  cookie: {
-      httpOnly: true,
-      secure: false,
-  }
-}));
+
 
 
 // catch 404 and forward to error handler
@@ -46,7 +49,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// error handler(gerenciador de erros de req.)
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -54,7 +57,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('404');
 });
 
 module.exports = app;

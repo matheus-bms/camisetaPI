@@ -11,7 +11,7 @@ body {
     height: 100vh;
     align-items: center;
     font-weight: 400px;
-    background: url(../images/imagem\ de\ fundo2.jpg) no-repeat center center/cover;
+    background: url(/images/imagem\ de\ fundo2.jpg) no-repeat center center/cover;
     background-color: rgba(0, 0, 0, 0.6);
     background-blend-mode: color;
 }
@@ -1354,7 +1354,7 @@ h2.title {
 }
 
 .content-404 h1 {
-    color: #363432;
+    color: #fff;
     font-size: 41px;
     font-weight: 300;
 }
@@ -1363,13 +1363,11 @@ h2.title {
     margin: 0 auto;
 }
 
-.content-404 p {
-    color: #363432;
-    font-size: 18px;
-}
+
 
 .content-404 h2 {
     margin-top: 50px;
+    color: #fff;
 }
 
 .content-404 h2 a {

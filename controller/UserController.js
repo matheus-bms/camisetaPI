@@ -66,6 +66,7 @@ module.exports = {
   res.render('compras');
       },
        renderizarShop: function(req, res) {
+         req.session.login = "ok"
   res.render('shop');
       },
 };
