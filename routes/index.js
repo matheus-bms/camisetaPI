@@ -1,6 +1,7 @@
 const express = require('express');
 const controller = require('../controller/UserController')
 const validadorDelogin = require('../validators/formLogin')
+const validationDeCadastro = require('../validators/cadastroValidations')
 const  router = express.Router();
 const errosMiddlewares = require('../Middleware/Erros');
 
@@ -23,7 +24,7 @@ router.get('/login', controller.formularioLogin);
 router.post('/login',validadorDelogin,errosMiddlewares, controller.fazerLogin);
 router.get('/compras', controller.renderizarcompras);
 router.post('/compras', controller.comprarAgora);
-router.post('/cadastro', controller.store)
+router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store)
 router.delete('/concluir-compra', controller.renderizarCompraConcluir)
 router.delete('/cancelar-compra', controller.cancelarCompra)
 router.get('/detalhes-do-produto', function(req, res) {

@@ -1,16 +1,18 @@
-import { body } from "express-validator";
+const { check } = require("express-validator")
 
-export const userValidate = [
-    body("nome").escape().not().isEmpty().withMessage("Nome Obrigatório"),
-    body("email")
+const arrayValidateCadastro = [
+    check("nome").escape().not().isEmpty().withMessage("Nome Obrigatório"),
+    check("email")
         .escape()
         .not()
         .isEmpty()
         .withMessage("Email é Obrigatório"),
-    body("senha")
+    check("senha")
         .isLength({min:8})
         .escape()
         .not()
         .isEmpty()
         .withMessage("Senha é Obrigatória")
 ]
+
+module.exports = arrayValidateCadastro;
