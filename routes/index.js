@@ -1,6 +1,11 @@
-var express = require('express');
+const express = require('express');
 const controller = require('../controller/UserController')
-var router = express.Router();
+const validadorDelogin = require('../validators/formLogin')
+const validationDeCadastro = require('../validators/cadastroValidations')
+const  router = express.Router();
+const errosMiddlewares = require('../Middleware/Erros');
+
+
 
 
 router.get('/', function(req, res) {
@@ -16,10 +21,10 @@ router.post('/checkout', controller.testeCheckout);
 router.get('/contato', controller.renderizarContato);
 router.get('/home', controller.renderizaHome);
 router.get('/login', controller.formularioLogin);
-router.post('/login', controller.fazerLogin);
+router.post('/login',validadorDelogin,errosMiddlewares, controller.fazerLogin);
 router.get('/compras', controller.renderizarcompras);
 router.post('/compras', controller.comprarAgora);
-router.post('/cadastro', controller.store)
+router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store)
 router.delete('/concluir-compra', controller.renderizarCompraConcluir)
 router.delete('/cancelar-compra', controller.cancelarCompra)
 router.get('/detalhes-do-produto', function(req, res) {
