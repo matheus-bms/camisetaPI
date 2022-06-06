@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const Auth = require('./Middleware/Auth');
+const Auth = require('./middlewares/Auth');
 
 const app = express();
 
