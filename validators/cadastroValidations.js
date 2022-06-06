@@ -1,13 +1,13 @@
-const { check } = require("express-validator")
-
+const { body } = require("express-validator")
+// bail interrompe a cadeia de validações
 const arrayValidateCadastro = [
-    check("nome").escape().not().isEmpty().withMessage("Nome Obrigatório"),
-    check("email")
+    body("nome").escape().not().isEmpty().withMessage("Nome Obrigatório"),
+    body("email")
         .escape()
         .not()
         .isEmpty()
         .withMessage("Email é Obrigatório"),
-    check("senha")
+    body("senha")
         .isLength({min:8})
         .escape()
         .not()
