@@ -7,3 +7,5 @@ function estaLogado(req, res, next) {
 }
 
 module.exports = estaLogado;
+
+
