@@ -3,7 +3,7 @@ const controller = require('../controller/UserController')
 const validadorDelogin = require('../validators/formLogin')
 const validationDeCadastro = require('../validators/cadastroValidations')
 const  router = express.Router();
-const errosMiddlewares = require('../Middleware/Erros');
+const errosMiddlewares = require('../middlewares/Erros');
 
 
 

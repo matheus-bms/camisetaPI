@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const Auth = require('./Middleware/Auth');
+const Auth = require('./middlewares/Auth');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //serve para transformar em jason
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
