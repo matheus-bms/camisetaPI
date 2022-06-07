@@ -31,6 +31,7 @@ module.exports = {
     if (!senhaEstaCorreta){ // O ponto de exclamação ele inverte o resultado (operador not)!!
       return res.json({mensagem:"usuario ou senha inválidos"})
     }
+    console.log(req.session.User) 
     req.session.User = { email, id:1 }   // ID: quando quiser exibir alguma coisa.
     res.json({ email });
   },
