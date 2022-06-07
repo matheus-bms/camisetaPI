@@ -1,18 +1,17 @@
 const express = require('express');
-
+const bcrypt = require('bcrypt');
 const { User } = require('../models')
-
 const fazerLogin = express.Router();
-
 const EXPIRE = 300 * 1000
+
 
 module.exports = {
   store: async (req, res) => {
     const { nome, email, senha } = req.body;
 
     //const user = await User.create({ nome, login: email, senha: senha });
-
-    return res.json({ nome, email, senha })
+    const hash = bcrypt.hashSync(senha, 12)
+    return res.json({ nome, email, senha: hash })
 
   },
   checkout: async function (req, res) {
