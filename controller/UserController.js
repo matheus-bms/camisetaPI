@@ -21,11 +21,18 @@ module.exports = {
     return res.json(checkout)
   },
 
+  //Comparações de Senhas !!! 
+  
   fazerLogin: async function (req, res) {
     const { email, senha } = req.body;
     // const users = await User.findOne({ where: { login: email, senha: senha } });
-    req.session.User = { email, senha, id:1 }
-    res.json({ email, senha });
+    const crypto = "$2b$12$DpLrUwCng0f82eouIhDS0OTXDn/H1rrvyBYoADr6/pzLCvtujpE8m" // comparação de senhas 
+    const senhaEstaCorreta = bcrypt.compareSync(senha, crypto)
+    if (!senhaEstaCorreta){ // O ponto de exclamação ele inverte o resultado (operador not)!!
+      return res.json({mensagem:"usuario ou senha inválidos"})
+    }
+    req.session.User = { email, id:1 }   // ID: quando quiser exibir alguma coisa.
+    res.json({ email });
   },
   comprarAgora: function (req, res) {
     res.send('compras')
