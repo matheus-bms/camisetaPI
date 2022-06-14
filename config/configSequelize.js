@@ -1,12 +1,9 @@
 
-
-const config = {
-    "username": "root",
-    "password": "",
-    "database": "camisashop",
-    "host": "localhost",
-    "port": "3306",
-    "dialect": "mysql"
+module.exports = { 
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_DATABASE,
+    "host": process.env.DB_HOST,
+    "dialect": process.env.DB_DIALECT,
+    "port": process.env.DB_PORT
   }
-  module.exports = config
-

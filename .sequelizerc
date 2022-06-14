@@ -1,8 +1,11 @@
+const dotenv = require('dotenv')
 const path = require('path')
- 
+// dotenv serve como porta de entrada do sequelize no banco de dados
+dotenv.config()
+
 module.exports = {
-  config: path.resolve(__dirname, 'config', 'configSequelize.js'),
-  'models-path': path.resolve(__dirname, 'models'),
-  'seeders-path': path.resolve(__dirname, 'seeders'),
-  'migrations-path': path.resolve(__dirname, 'migrations')
+    config: path.resolve(__dirname, 'config', 'configSequelize.js'),
+    'models-path': path.resolve(__dirname, 'db', 'models'),
+    'migrations-path': path.resolve(__dirname, 'db', 'migrations'),
+    'seeders-path': path.resolve(__dirname, 'db', 'seeders')
 }
