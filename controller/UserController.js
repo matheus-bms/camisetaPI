@@ -1,8 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { User } = require('../models')
+const { Usuario } = require('../db/models')
 const fazerLogin = express.Router();
 const EXPIRE = 300 * 1000
+
 
 
 module.exports = {
@@ -11,7 +12,14 @@ module.exports = {
 
     //const user = await User.create({ nome, login: email, senha: senha });
     const hash = bcrypt.hashSync(senha, 12)
-    return res.json({ nome, email, senha: hash })
+    const db = await Usuario.create({
+      nome,
+      login: email,
+      email,
+      senha: hash,
+      nascimento: '2000-06-16'
+    })
+    return res.json({ db})
 
   },
   checkout: async function (req, res) {
@@ -25,15 +33,20 @@ module.exports = {
   
   fazerLogin: async function (req, res) {
     const { email, senha } = req.body;
-    // const users = await User.findOne({ where: { login: email, senha: senha } });
-    const crypto = "$2b$12$DpLrUwCng0f82eouIhDS0OTXDn/H1rrvyBYoADr6/pzLCvtujpE8m" // comparação de senhas 
-    const senhaEstaCorreta = bcrypt.compareSync(senha, crypto)
+    const users = await Usuario.findOne({ where: { login: email,  } });
+    if(!users){
+      return res.json({mensagem:"usuario ou senha inválidos"})
+    }
+    
+    const senhaEstaCorreta = bcrypt.compareSync(senha, users.senha)
     if (!senhaEstaCorreta){ // O ponto de exclamação ele inverte o resultado (operador not)!!
       return res.json({mensagem:"usuario ou senha inválidos"})
     }
+    users.senha = undefined
+    delete users.senha
     console.log(req.session.User) 
-    req.session.User = { email, id:1 }   // ID: quando quiser exibir alguma coisa.
-    res.json({ email });
+    req.session.User = users  // ID: quando quiser exibir alguma coisa.
+    res.json(users);
   },
   comprarAgora: function (req, res) {
     res.send('compras')
