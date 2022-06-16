@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'RESTRICT',
         onUpdate: 'CASCADE'
       })
+      Produto.belongsToMany(models.Compra, {
+        as: 'produto_compras',
+        foreignKey: 'id_produtos',
+        through: 'ProdutosHasCompras'
+        // througt ele indica qual é a tabela intermediaria 
+      })
     }
   }
   Produto.init({
