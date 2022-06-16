@@ -13,7 +13,7 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
-
+//readdirSync faz a leitura da pasta atual
 fs
   .readdirSync(__dirname)
   .filter(file => {
