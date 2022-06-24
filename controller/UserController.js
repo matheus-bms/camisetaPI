@@ -91,4 +91,5 @@ module.exports = {
     req.session.login = "ok"
     res.render('shop');
   },
+ 
 };

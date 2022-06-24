@@ -10,19 +10,14 @@ const errosMiddlewares = require('../middlewares/Erros');
 
 
 router.get('/', function(req, res) {
-  res.redirect('/home');
+  res.redirect('/carrinho');
 });
 
-router.get('/home', controller.renderizaHome);
-router.get('/404', controller.renderizar404);
-router.get('/blog-single', controller.renderizerBlogSingle);
-router.get('/blog', controller.renderizerBlog);
+router.get('/cart', controller.renderizarCart);
+router.get('/checkout', logado, controller.renderizarCheckout);
+router.post('/checkout', controller.testeCheckout);
+router.get('/shop', controller.renderizarShop);
 
+router.use(logado); 
 
-
-// Nenhuma rota estará acessivel daqui para baixo sem login!!
-
-
-
-
-module.exports = router;
+module.exports = router
