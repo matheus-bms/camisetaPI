@@ -84,6 +84,15 @@ module.exports = {
   renderizarCompraConcluir: function (req, res) {
     res.render('compras');
   },
+  renderizarProdutos: function (req, res) {
+    res.render('Produtos');
+  },
+  renderizarMinhaconta: function (req, res) {
+    res.render('minhaconta');
+  },
+  renderizarFavoritos: function (req, res) {
+    res.render('favoritos');
+  },
   cancelarCompra: function (req, res) {
     res.render('compras');
   },

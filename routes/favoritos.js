@@ -12,12 +12,6 @@ router.get('/', function(req, res) {
     res.redirect('/login');
 });
 
-router.get('/contato', controller.renderizarContato);
-router.get('/login',  controller.formularioLogin);
-router.post('/login',validadorDelogin,errosMiddlewares, controller.fazerLogin);
-router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
+router.get('/favoritos', controller.renderizarFavoritos)
 
-
-router.use(logado); 
-
-module.exports = router
+module.exports = router;

@@ -11,6 +11,7 @@ const { Router } = require('express');
 router.get('/', function(req, res) {
     res.redirect('/');
 });
+const produtoRouter = Router()
 
 router.get('/compras', controller.renderizarcompras);
 router.post('/compras', controller.comprarAgora);
@@ -20,4 +21,4 @@ router.get('/detalhes-do-produto', function(req, res) {
   res.render('detalhes-do-produto');
 });
 
-module.exports = router
+module.exports = produtoRouter

@@ -13,11 +13,6 @@ router.get('/', function(req, res) {
 });
 
 router.get('/contato', controller.renderizarContato);
-router.get('/login',  controller.formularioLogin);
-router.post('/login',validadorDelogin,errosMiddlewares, controller.fazerLogin);
 router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
 
-
-router.use(logado); 
-
-module.exports = router
+module.exports = router;
