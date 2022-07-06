@@ -28,6 +28,19 @@ module.exports = {
 
     return res.json(checkout)
   },
+  produtos: async function (req, res) {
+    const Fprodutos =  { 
+      nome,
+      preco,
+      tamanho,
+      descricao, 
+      imagem,
+      genero,
+     } = req.body;
+    const checkout = await User.findOne({ where: { nome: nome, senha: senha } });
+
+    return res.json(checkout)
+  },
 
   //Comparações de Senhas !!! 
   
