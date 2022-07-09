@@ -6,7 +6,7 @@ const EXPIRE = 300 * 1000
 
 
 
-module.exports = {
+module.exports =  {
   store: async (req, res) => {
     const { nome, email, senha } = req.body;
 
@@ -19,7 +19,7 @@ module.exports = {
       senha: hash,
       nascimento: '2000-06-16'
     })
-    return res.json({ db})
+    return res.json({db})
 
   },
   checkout: async function (req, res) {
@@ -37,9 +37,9 @@ module.exports = {
       imagem,
       genero,
      } = req.body;
-    const checkout = await User.findOne({ where: { nome: nome, senha: senha } });
+    const produtos = await User.findOne({ where: { nome: nome, senha: senha } });
 
-    return res.json(checkout)
+    return res.json(produtos)
   },
 
   //Comparações de Senhas !!! 

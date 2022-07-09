@@ -8,9 +8,7 @@ const errosMiddlewares = require('../middlewares/Erros');
 const { Router } = require('express');
 
 
-router.get('/', function(req, res) {
-    res.redirect('/login');
-});
+
 
 
 router.get('/login',  controller.formularioLogin);
@@ -18,6 +16,5 @@ router.post('/login',validadorDelogin,errosMiddlewares, controller.fazerLogin);
 router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
 
 
-router.use(logado); 
 
 module.exports = router

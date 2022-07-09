@@ -14,6 +14,9 @@ router.get('/', function(req, res) {
 const produtoRouter = Router()
 
 router.get('/compras', controller.renderizarcompras);
+
+router.use(logado)
+
 router.post('/compras', controller.comprarAgora);
 router.delete('/concluir-compra', controller.renderizarCompraConcluir)
 router.delete('/cancelar-compra', controller.cancelarCompra)

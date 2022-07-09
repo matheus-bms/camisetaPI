@@ -13,5 +13,6 @@ router.get('/', function(req, res) {
 });
 
 router.get('/contato', controller.renderizarContato);
+router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
 
 module.exports = router

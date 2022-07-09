@@ -11,6 +11,7 @@ const { Router } = require('express');
 router.get('/', function(req, res) {
     res.redirect('/login');
 });
+router.use(logado); 
 
 router.get('/contato', controller.renderizarContato);
 router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
