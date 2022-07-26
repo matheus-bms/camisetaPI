@@ -237,28 +237,26 @@
 									<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="<%= produto.imagem %> " alt="" />
-												<h2><%= produto.preco %></h2>
-												<p> <%= produto.nome%> </p>
+												<h2 class="name-size">$ <%= produto.preco %></h2>
+												<p> <%=  produto.nome%> </p>
 												
-												<div>
-													<p class="product-list-item__produto-preco"><%= produto.preco %>  %> </p>
-												</div>
+												
 												<form action="/cart/<%= produto.id %> " method="get">
 													
 												
-													<button type="submit" class="btn btn-default">add carrinho</button>
+													<button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao carrinho</button>
 												</form>
 												
 											</div>
 											<div class="product-overlay">
 												<div class="overlay-content">
-													<h2><%= produto.preco %> </h2>
-													<p><%= produto.nome %> </p>
+													<h2 class="name-size">$<%=  produto.preco %> </h2>
+													<p><%=  produto.nome %> </p>
 													<form action="/cart/<%= produto.id %> " method="get">
 													
 														
 											
-														<button type="submit" class="btn btn-primary">add carrinho</button>
+														<button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao carrinho</button>
 													</form>
 												</div>
 											</div>
@@ -278,9 +276,9 @@
 								<div class="single-products">
 									<div class="productinfo text-center">
 										<img src="/images/home/product2.jpg" alt="" />
-										<h2>$56</h2>
+										<h2>56</h2>
 										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao carrinho</a>
+										<button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao carrinho</button>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
