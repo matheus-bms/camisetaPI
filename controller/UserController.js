@@ -1,10 +1,16 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { Usuario } = require('../db/models')
+const { Usuario, Produto } = require('../db/models')
 const fazerLogin = express.Router();
 const EXPIRE = 300 * 1000
 
 
+const userForm = async (req, res)=>{
+  await res.render('contato');
+}
+module.exports = {
+  userForm
+}
 
 module.exports =  {
   store: async (req, res) => {
@@ -20,7 +26,8 @@ module.exports =  {
       nascimento: '2000-06-16'
     })
     return res.json({db})
-
+    
+    
   },
   checkout: async function (req, res) {
     const { email, senha } = req.body;
@@ -37,9 +44,9 @@ module.exports =  {
       imagem,
       genero,
      } = req.body;
-    const produtos = await User.findOne({ where: { nome: nome, senha: senha } });
+    //const produtos = await User.Produto({ where: { nome: nome, senha: senha } });
 
-    return res.json(produtos)
+    //return res.json(produtos)
   },
 
   //Comparações de Senhas !!! 
@@ -70,8 +77,9 @@ module.exports =  {
   formularioLogin: function (req, res) {
     res.render('login');
   },
-  renderizaHome: function (req, res) {
-    res.render('home');
+  renderizaHome: async function  (req, res) {
+    const produtos = await Produto.findAll()
+    res.render('home', {produtos});
   },
   renderizarContato: function (req, res) {
     res.render('contato');

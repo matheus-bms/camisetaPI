@@ -6,6 +6,7 @@ const validationDeCadastro = require('../validators/cadastroValidations')
 const  router = express.Router();
 const errosMiddlewares = require('../middlewares/Erros');
 const { store } = require('../controller/UserController');
+const { application } = require('express');
 
 
 
@@ -27,6 +28,7 @@ router.use('/checkout',controller.renderizarCheckout);
 router.use('/favoritos', controller.renderizarFavoritos);
 router.use('/minhaconta', controller.renderizarMinhaconta);
 router.use('/cadastro',controller.store)
+
 
 
 
