@@ -237,7 +237,7 @@
 									<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="<%= produto.imagem %> " alt="" />
-												<h2 class="name-size">$ <%= produto.preco %></h2>
+												<h2 class="name-size"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%> </h2>
 												<p> <%=  produto.nome%> </p>
 												
 												
@@ -250,7 +250,7 @@
 											</div>
 											<div class="product-overlay">
 												<div class="overlay-content">
-													<h2 class="name-size">$<%=  produto.preco %> </h2>
+													<h2 class="name-size"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%> </h2>
 													<p><%=  produto.nome %> </p>
 													<form action="/cart/<%= produto.id %> " method="get">
 													
@@ -261,40 +261,13 @@
 												</div>
 											</div>
 									</div>
-									<div class="choose">
-										<ul class="nav nav-pills nav-justified">
-											<li><a href="#"><i class="fa fa-plus-square"></i>Adicionar aos favoritos</a></li>
-											<li><a href="#"><i class="fa fa-plus-square"></i>Comparar</a></li>
-										</ul>
-									</div>
+									
 								</div>
 							</div>
 						<% }) %>
 
 						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="/images/home/product2.jpg" alt="" />
-										<h2>56</h2>
-										<p>Easy Polo Black Edition</p>
-										<button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao carrinho</button>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao carrinho</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Adicionar aos favoritos</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Comparar</a></li>
-									</ul>
-								</div>
-							</div>
+							
 						</div>
 		
 						

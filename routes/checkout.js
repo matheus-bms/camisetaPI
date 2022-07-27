@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 });
 router.use(logado); 
 
-router.get('/contato', controller.renderizarContato);
+
 router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
 
 module.exports = router;
