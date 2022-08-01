@@ -6,7 +6,7 @@ const validationDeCadastro = require('../validators/cadastroValidations')
 const  router = express.Router();
 const errosMiddlewares = require('../middlewares/Erros');
 const { store } = require('../controller/UserController');
-const { application } = require('express');
+const cart = require('./cart')
 
 
 
@@ -20,7 +20,7 @@ router.use('/contato',controller.renderizarContato);
 router.get('/404', controller.renderizar404);
 router.get('/blog-single', controller.renderizerBlogSingle);
 router.get('/blog', controller.renderizerBlog);
-router.use('/cart',controller.renderizarCart);
+router.use('/cart', cart);
 router.use('/login', controller.formularioLogin);
 router.use('/login', controller.fazerLogin);
 router.use('/produtos', controller.renderizarProdutos);

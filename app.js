@@ -35,6 +35,14 @@ app.use(session({
       secure: false,
   }
 }));
+app.use((req, res, next)=> {
+  if(!Array.isArray(req.session.cart)||typeof req.session.cart === 'undefined'){
+    req.session.cart=[]
+  }
+
+
+ next()
+})
 
 app.use(Auth)
 app.use('/', indexRouter);

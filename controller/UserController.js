@@ -121,5 +121,15 @@ module.exports =  {
     req.session.login = "ok"
     res.render('shop');
   },
+  addcart: async (req, res)=> {
+    const produtoCart = await Produto.findOne({
+      where: {
+        id: +req.params.id
+      }
+    })
+    produtoCart.quantidade = 1
+    req.session.cart.push(produtoCart)
+    res.json({cart: req.session.cart})
+}
  
 };
