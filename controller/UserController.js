@@ -122,13 +122,20 @@ module.exports =  {
     res.render('shop');
   },
   addcart: async (req, res)=> {
+    const verificaId = isNaN(+req.params.id)
+    if(verificaId){
+      return res.redirect('/cart')
+    }
     const produtoCart = await Produto.findOne({
       where: {
         id: +req.params.id
       }
     })
-    produtoCart.quantidade = 1
-    req.session.cart.push(produtoCart)
+    if(produtoCart){
+      produtoCart.quantidade = 1
+      req.session.cart.push(produtoCart)
+    }
+    
     res.json({cart: req.session.cart})
 }
  

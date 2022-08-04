@@ -11,7 +11,7 @@ const errosMiddlewares = require('../middlewares/Erros');
 
 
 router.get('/shop', controller.renderizarShop);
-router.get('/:id', controller.addcart )
+router.get('/:id', controller.addcart );
 router.use(logado); 
 
 router.get('/', controller.renderizarCart);
