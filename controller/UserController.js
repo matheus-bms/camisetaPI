@@ -91,7 +91,18 @@ module.exports =  {
     res.send('checkout');
   },
   renderizarCart: function (req, res) {
-    res.render('cart');
+    res.render('cart', {cart: req.session.cart});
+    let total = 0;
+    let subtotal = 0;
+    const novocart = [];
+    req.session.cart.ForEach(produto => {
+    subtotal = produto.quantidade*produto.preco;
+    total = total+subtotal;
+    produto.subtotal = subtotal;
+    novocart.push(produto)
+    })
+    req.session.cart= novocart, total;
+    
   },
   renderizerBlog: function (req, res) {
     res.render('blog');
@@ -136,7 +147,7 @@ module.exports =  {
       req.session.cart.push(produtoCart)
     }
     
-    res.json({cart: req.session.cart})
+    res.redirect('/cart')
 }
  
 };

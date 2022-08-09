@@ -24,7 +24,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<% cart.forEach(produto => { %>
 							<td class="cart_product">
 								<a href=""><img src="/images/cart/one.png" alt=""></a>
 							</td>
@@ -34,7 +34,7 @@
 							</td>
 							<div>
 							<td class="cart_price">
-								<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format('59')%></p>
+								<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%></p>
 							</td>
 							</div>
 							<td class="cart_quantity">
@@ -45,7 +45,8 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format('59')%></p>
+								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.subtotal
+								)%></p>
 							</td>
 							<!--<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -103,6 +104,8 @@
 							</td>-->
 						</tr>
 					</tbody>
+						<% }) %>
+			
 				</table>
 			</div>
 		</div>
@@ -114,7 +117,8 @@
 			<div class="row">
 				<div class="col-sm-6">
 					
-				</div>
+				</div>						<tr>
+
 				<div class="checkbox">
 					<div class="total_area">
 						<ul>
