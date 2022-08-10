@@ -91,7 +91,17 @@ module.exports =  {
     res.send('checkout');
   },
   renderizarCart: function (req, res) {
-    res.render('cart');
+    let total= 0;
+    let subTotal = 0;
+    const novoCart = [];
+    req.session.cart.forEach(item =>{
+      subTotal = item.quantidade * item.preco;
+      total = total + subTotal;
+      item.subTotal = subTotal;
+      novoCart.push(item)
+    })
+    req.session.cart = novoCart
+    res.render('cart',{cart:req.session.cart, total});
   },
   renderizerBlog: function (req, res) {
     res.render('blog');
@@ -132,11 +142,14 @@ module.exports =  {
       }
     })
     if(produtoCart){
-      produtoCart.quantidade = 1
-      req.session.cart.push(produtoCart)
+      const cart = {
+        quantidade:1,
+        ...produtoCart.dataValues
+      }
+      req.session.cart.push(cart)
     }
     
-    res.json({cart: req.session.cart})
+    res.redirect('/cart')
 }
  
 };
