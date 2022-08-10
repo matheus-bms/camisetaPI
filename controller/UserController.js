@@ -91,7 +91,7 @@ module.exports =  {
     res.send('checkout');
   },
   renderizarCart: function (req, res) {
-<<<<<<< HEAD
+
     let total= 0;
     let subTotal = 0;
     const novoCart = [];
@@ -103,7 +103,7 @@ module.exports =  {
     })
     req.session.cart = novoCart
     res.render('cart',{cart:req.session.cart, total});
-=======
+
     res.render('cart', {cart: req.session.cart});
     let total = 0;
     let subtotal = 0;
@@ -116,7 +116,7 @@ module.exports =  {
     })
     req.session.cart= novocart, total;
     
->>>>>>> 
+
   },
   renderizerBlog: function (req, res) {
     res.render('blog');
