@@ -11,9 +11,15 @@ const cartValidacao = require('../validators/cartValidacao')
 
 
 router.get('/shop', controller.renderizarShop);
+
+router.get('/:id', controller.addcart );
+router.get('/', controller.renderizarCart);
+router.use(logado); 
+
 router.get('/:id', cartValidacao, controller.addcart );
 router.get('/', controller.renderizarCart);
 router.use(logado); 
+
 
 
 router.get('/checkout', logado, controller.renderizarCheckout);

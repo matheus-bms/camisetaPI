@@ -91,6 +91,19 @@ module.exports =  {
     res.send('checkout');
   },
   renderizarCart: function (req, res) {
+
+    let total= 0;
+    let subTotal = 0;
+    const novoCart = [];
+    req.session.cart.forEach(item =>{
+      subTotal = item.quantidade * item.preco;
+      total = total + subTotal;
+      item.subTotal = subTotal;
+      novoCart.push(item)
+    })
+    req.session.cart = novoCart
+    res.render('cart',{cart:req.session.cart, total});
+
     res.render('cart', {cart: req.session.cart});
     let total = 0;
     let subtotal = 0;
@@ -103,6 +116,7 @@ module.exports =  {
     })
     req.session.cart= novocart, total;
     
+
   },
   renderizerBlog: function (req, res) {
     res.render('blog');
@@ -147,8 +161,11 @@ module.exports =  {
     }
     console.log(cart)
     if(produtoCart){
-      produtoCart.quantidade = 1
-      req.session.cart.push(produtoCart)
+      const cart = {
+        quantidade:1,
+        ...produtoCart.dataValues
+      }
+      req.session.cart.push(cart)
     }
     
     res.redirect('/cart')
