@@ -3,7 +3,7 @@
 <body>
 	<%- include('./partials/header'); %> 
 
-	<section id="cart_items">
+		<section id="cart_items">
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
@@ -26,10 +26,10 @@
 					<tbody>
 						<% cart.forEach(produto => { %>
 							<td class="cart_product">
-								<a href=""><img src="/images/cart/one.png" alt=""></a>
+								<a href=""><img src="<%= produto.imagem %> " alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
+								<h4><a href=""><%= produto.nome %> </a></h4>
 								<!--<p>Web ID: 1089772</p>-->
 							</td>
 							<div>
@@ -41,13 +41,16 @@
 								<div class="cart_quantity_button">
 									<a class="cart_quantity_up" href=""> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<a class="cart_quantity_down" href="<%= produto.quantidade %> "> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.subtotal
 								)%></p>
 							</td>
+						
+	
+				
 							<!--<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 							</td>

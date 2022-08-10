@@ -142,6 +142,10 @@ module.exports =  {
         id: +req.params.id
       }
     })
+    const cart = {
+      ...produtoCart
+    }
+    console.log(cart)
     if(produtoCart){
       produtoCart.quantidade = 1
       req.session.cart.push(produtoCart)
