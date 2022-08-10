@@ -3,7 +3,7 @@
 <body>
 	<%- include('./partials/header'); %> 
 
-	<section id="cart_items">
+		<section id="cart_items">
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
@@ -42,6 +42,58 @@
 								<td class="cart_price">
 									<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%></p>
 								</td>
+<<<<<<< HEAD
+=======
+=======
+							<td class="cart_product">
+								<a href=""><img src="<%= produto.imagem %> " alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href=""><%= produto.nome %> </a></h4>
+								<!--<p>Web ID: 1089772</p>-->
+							</td>
+							<div>
+							<td class="cart_price">
+								<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%></p>
+							</td>
+							</div>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href=""> + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href="<%= produto.quantidade %> "> - </a>
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.subtotal
+								)%></p>
+							</td>
+						
+	
+				
+							<!--<td class="cart_delete">
+								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+	
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="images/cart/two.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">Colorblock Scuba</a></h4>
+								<p>Web ID: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>$59</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href=""> + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href=""> - </a>
+>>>>>>> a04f1d3aff6f4227e05e8bb04a78979fd512297e
+>>>>>>> 45e279b1888ab26f693b2a25c7ca745b81b584f8
 								</div>
 								<td class="cart_quantity">
 									<div class="cart_quantity_button">

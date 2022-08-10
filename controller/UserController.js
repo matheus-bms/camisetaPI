@@ -141,6 +141,10 @@ module.exports =  {
         id: +req.params.id
       }
     })
+    const cart = {
+      ...produtoCart
+    }
+    console.log(cart)
     if(produtoCart){
       const cart = {
         quantidade:1,
