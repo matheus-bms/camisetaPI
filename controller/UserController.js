@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { Usuario, Produto } = require('../db/models')
 const fazerLogin = express.Router();
 const EXPIRE = 300 * 1000
-
+const {validationResult} = require('express-validator')
 
 const userForm = async (req, res)=>{
   await res.render('contato');
@@ -91,6 +91,7 @@ module.exports =  {
     res.send('checkout');
   },
   renderizarCart: function (req, res) {
+<<<<<<< HEAD
     let total= 0;
     let subTotal = 0;
     const novoCart = [];
@@ -102,6 +103,20 @@ module.exports =  {
     })
     req.session.cart = novoCart
     res.render('cart',{cart:req.session.cart, total});
+=======
+    res.render('cart', {cart: req.session.cart});
+    let total = 0;
+    let subtotal = 0;
+    const novocart = [];
+    req.session.cart.ForEach(produto => {
+    subtotal = produto.quantidade*produto.preco;
+    total = total+subtotal;
+    produto.subtotal = subtotal;
+    novocart.push(produto)
+    })
+    req.session.cart= novocart, total;
+    
+>>>>>>> 
   },
   renderizerBlog: function (req, res) {
     res.render('blog');
@@ -132,8 +147,8 @@ module.exports =  {
     res.render('shop');
   },
   addcart: async (req, res)=> {
-    const verificaId = isNaN(+req.params.id)
-    if(verificaId){
+    const verificaId = validationResult(req).isEmpty()
+    if(!verificaId){
       return res.redirect('/cart')
     }
     const produtoCart = await Produto.findOne({
