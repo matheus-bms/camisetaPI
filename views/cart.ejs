@@ -1,4 +1,4 @@
-70<%- include('./partials/head'); %> 
+<%- include('./partials/head'); %> 
 
 <body>
 	<%- include('./partials/header'); %> 
@@ -12,11 +12,7 @@
 				</ol>
 			</div>
 			<div class="table-responsive cart_info">
-				<% if(cart && Object.entries(cart).length === 0){ %>
-					<script>
-						console.log('O Carrinho está vazio!');
-					</script>
-    <% } %>
+			
 				<% if (cart.length === 0) {   %>
 					<div class="carrinho-vazio">
 					<h3>"Ops!! parece que o carrinho está vazio, volte a página inicial <a href="/home">clicando aqui!</a> </h3>
@@ -51,19 +47,7 @@
 									<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%></p>
 								</td>
 
-
-
-							<td class="cart_product">
-								<a href=""><img src="<%= produto.imagem %> " alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href=""><%= produto.nome %> </a></h4>
-								<!--<p>Web ID: 1089772</p>-->
-							</td>
-							<div>
-							<td class="cart_price">
-								<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%></p>
-							</td>
+							
 							</div>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -73,61 +57,21 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.subtotal
-								)%></p>
+								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
+								.format(produto.subTotal)%></p>
 							</td>
-						
-	
+					
 				
-							<!--<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-	
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> a04f1d3aff6f4227e05e8bb04a78979fd512297e
->>>>>>> 41e730836da3222173b4bc88731769fd0300c55a
-								</div>
-								<td class="cart_quantity">
-									<div class="cart_quantity_button">
-										<a class="cart_quantity_up" href=""> + </a>
-										<input class="cart_quantity_input" type="text" name="quantity" value="<%= produto.quantidade %> " autocomplete="off" size="2">
-										<a class="cart_quantity_down" href=""> - </a>
-									</div>
-								</td>
-								<td class="cart_total">
-									<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.subTotal)%></p>
-								</td>
-								
-							</tr>-->
+						
 						<% }) %>
 					
 					</tbody>
-						<% }) %>
+						
 			
 				</table>
 			</div>
 		</div>
-	</section> /#cart_items-->
+	</section> 
 	
 	<section id="do_action">
 		<div class="container">
@@ -149,5 +93,5 @@
 				</div>
 			</div>
 		</div>
-		<% } %> 
-	</section><!--/#do_action-->
+		<% } %>
+	</section>
