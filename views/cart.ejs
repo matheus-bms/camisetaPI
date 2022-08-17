@@ -1,4 +1,4 @@
-<%- include('./partials/head'); %> 
+70<%- include('./partials/head'); %> 
 
 <body>
 	<%- include('./partials/header'); %> 
@@ -12,13 +12,20 @@
 				</ol>
 			</div>
 			<div class="table-responsive cart_info">
+				<% if(cart && Object.entries(cart).length === 0){ %>
+					<script>
+						console.log('O Carrinho está vazio!');
+					</script>
+    <% } %>
+				<% if (cart.length === 0) {   %>
+					<div class="carrinho-vazio">
+					<h3>"Ops!! parece que o carrinho está vazio, volte a página inicial <a href="/home">clicando aqui!</a> </h3>
+				</div>
+					<% } else { %>
 				<table class="table table-condensed">
+
 					<thead>
-						<% if (cart.length === 0) {   %>
-							<div class="carrinho-vazio">
-							<h3>"Ops!! parece que o carrinho está vazio, volte a página inicial <a href="/home">clicando aqui!</a> </h3>
-						</div>
-							<% } else { %>
+						
 								<tr class="cart_menu">
 									<td class="image">Item</td>
 									<td class="description">Descrição</td>
@@ -26,7 +33,7 @@
 									<td class="quantity">Quantidade</td>
 									<td class="total">Total</td>
 								</tr>	
-								<% } %> 
+								
 					</thead>
 					<tbody>
 						<% cart.forEach(produto => { %>
@@ -42,9 +49,8 @@
 								<td class="cart_price">
 									<p><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.preco)%></p>
 								</td>
-<<<<<<< HEAD
-=======
-=======
+
+
 							<td class="cart_product">
 								<a href=""><img src="<%= produto.imagem %> " alt=""></a>
 							</td>
@@ -92,8 +98,8 @@
 									<a class="cart_quantity_up" href=""> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
 									<a class="cart_quantity_down" href=""> - </a>
->>>>>>> a04f1d3aff6f4227e05e8bb04a78979fd512297e
->>>>>>> 45e279b1888ab26f693b2a25c7ca745b81b584f8
+
+
 								</div>
 								<td class="cart_quantity">
 									<div class="cart_quantity_button">
@@ -106,14 +112,14 @@
 									<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(produto.subTotal)%></p>
 								</td>
 								
-							</tr>
+							</tr>-->
 						<% }) %>
 					
 					</tbody>
 				</table>
 			</div>
 		</div>
-	</section> <!--/#cart_items-->
+	</section> /#cart_items-->
 	
 	<section id="do_action">
 		<div class="container">
@@ -135,4 +141,5 @@
 				</div>
 			</div>
 		</div>
+		<% } %> 
 	</section><!--/#do_action-->
