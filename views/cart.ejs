@@ -1,6 +1,7 @@
 <%- include('./partials/head'); %> 
 
 <body>
+
 	<%- include('./partials/header'); %> 
 
 		<section id="cart_items">
@@ -22,15 +23,15 @@
 
 					<thead>
 
-						
 								<tr class="cart_menu">
 									<td class="image">Item</td>
 									<td class="description">Descrição</td>
 									<td class="price">Preço</td>
 									<td class="quantity">Quantidade</td>
 									<td class="total">Total</td>
+
 								</tr>	
-								
+						
 					</thead>
 					<tbody>
 						<% cart.forEach(produto => { %>
@@ -63,6 +64,7 @@
 					
 				
 						
+
 						<% }) %>
 					
 					</tbody>
@@ -72,6 +74,7 @@
 			</div>
 		</div>
 	</section> 
+
 	
 	<section id="do_action">
 		<div class="container">
@@ -93,5 +96,6 @@
 				</div>
 			</div>
 		</div>
+
 		<% } %>
 	</section>

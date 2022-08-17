@@ -102,7 +102,8 @@ module.exports =  {
     })
     req.session.cart = novoCart
     res.render('cart',{cart:req.session.cart, total});
-    },
+  },
+
   renderizerBlog: function (req, res) {
     res.render('blog');
   },
