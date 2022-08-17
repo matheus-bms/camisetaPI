@@ -91,7 +91,6 @@ module.exports =  {
     res.send('checkout');
   },
   renderizarCart: function (req, res) {
-
     let total= 0;
     let subTotal = 0;
     const novoCart = [];
@@ -103,21 +102,7 @@ module.exports =  {
     })
     req.session.cart = novoCart
     res.render('cart',{cart:req.session.cart, total});
-
-    res.render('cart', {cart: req.session.cart});
-    let total = 0;
-    let subtotal = 0;
-    const novocart = [];
-    req.session.cart.ForEach(produto => {
-    subtotal = produto.quantidade*produto.preco;
-    total = total+subtotal;
-    produto.subtotal = subtotal;
-    novocart.push(produto)
-    })
-    req.session.cart= novocart, total;
-    
-
-  },
+    },
   renderizerBlog: function (req, res) {
     res.render('blog');
   },
