@@ -59,32 +59,37 @@
 										<% } %>
 									</select>
 									
-									<!--a class="cart_quantity_up" href=""> - </!--a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a-- class="cart_quantity_down" href="<%= produto.quantidade %> "> + </a-->
+									
 								</div>
 							</td>
-							<td class="cart_total">
+							<td data-livro = '' class="cart_total">
 								<p class="cart_total_price"><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
 								.format(produto.subTotal)%></p>
 							</td>
-							<script>
-								const elemento = document.getElementsByClassName("cart_quantity_input")
-								const select = elemento[0]
-								select.addEventListener('input', function(evento){
-									const cartprice = document.getElementsByClassName("cart_total_price")
-									const subtotal = cartprice[0]
-									const novoValor = +evento.target.value*349.9
-									const valorFormat =  new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
-								.format(novoValor)
-								subtotal.innerText = valorFormat
-								})
-
-							</script>
-				
+						
 						
 
 						<% }) %>
+						<script>
+							let element = document.getElementsByClassName("cart_quantity_input")
+							element = Array.from(element)
+							element.forEach(select => {
+								
+							select.addEventListener('input', function(evento){
+								const subtotal = document.querySelector(".cart_total_price")
+								
+								const valorUnitario = document.querySelector('td.cart_price p').innerText
+								
+								const valorUnitarioNumerico = Number(valorUnitario.split("R$")[1].replaceAll('.', '').replace(',', '.'));
+								const novoValor = +evento.target.value*valorUnitarioNumerico; 
+								const valorFormat =  new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
+							.format(novoValor)
+							subtotal.innerText = valorFormat
+							})
+							});
+
+						</script>
+			
 					
 					</tbody>
 						
