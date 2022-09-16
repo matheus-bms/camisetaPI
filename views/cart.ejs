@@ -106,6 +106,7 @@
 		<% } %>
 	</section>
 	<script>
+		const carrinho = <%-JSON.stringify(cart) %>
 		let element = document.getElementsByClassName("cart_quantity_input")
 		element = Array.from(element)
 		element.forEach(select => {
@@ -118,7 +119,12 @@
 			const valorUnitario = produto.querySelector('td.cart_price p').innerText
 			const valorUnitarioNumerico = Number(valorUnitario.split("R$")[1].replaceAll('.', '').replace(',', '.'));
 			const novoValor = +evento.target.value*valorUnitarioNumerico;
-			
+
+			const objetoServidor = carrinho[selectid]
+			const novoValorObjeto = +evento.target.value * objetoServidor.preco;
+			objetoServidor.quantidade = +evento.target.value;
+			objetoServidor.subtotal = novoValorObjeto;
+
 			console.log(produto)
 			
 			
