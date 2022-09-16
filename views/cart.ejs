@@ -106,6 +106,7 @@
 		<% } %>
 	</section>
 	<script>
+		const carrinho = <%-JSON.stringify(cart) %>
 		let element = document.getElementsByClassName("cart_quantity_input")
 		element = Array.from(element)
 		element.forEach(select => {
@@ -113,17 +114,18 @@
 		select.addEventListener('input', function(evento){
 			
 			const selectid = evento.target.dataset.id
-			const produto = document.querySelector(`[data-cart='${selectid}']`) 
-			const subtotal = produto.querySelector(".cart_total_price")
-			const valorUnitario = produto.querySelector('td.cart_price p').innerText
-			const valorUnitarioNumerico = Number(valorUnitario.split("R$")[1].replaceAll('.', '').replace(',', '.'));
-			const novoValor = +evento.target.value*valorUnitarioNumerico;
+			const produto = document.querySelector(`[data-cart='${selectid}']`);
+			const subtotal = produto.querySelector(".cart_total_price");
 			
-			console.log(produto)
+			const objetoServidor = carrinho[selectid];
+			const novoValorObjeto = +evento.target.value * objetoServidor.preco; 
+			objetoServidor.quantidade = +evento.target.value;
+			objetoServidor.subTotal = novoValorObjeto;
+			
 			
 			
 			const valorFormat =  new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
-		.format(novoValor)
+		.format(novoValorObjeto)
 
 		subtotal.innerText = valorFormat
 		atualizaCarrinho()
@@ -132,13 +134,11 @@
 		})
 		});
 		function atualizaCarrinho(){
-			const precos = Array.from( document.querySelectorAll('.cart_total_price'))
-			let total = 0
-			precos.forEach(preco=>{
-				const valorUnitarioNumerico = Number(preco.innerText.split("R$")[1].replaceAll('.', '').replace(',', '.'));	
-				//total=total+valorUnitarioNumerico
-				total+=valorUnitarioNumerico
-			})
+			const total = carrinho.reduce((acumulador,item)=> acumulador + item.subTotal, 0);
+			
+			// let valorTotal = 0 ;
+			// carrinho.forEach(produto => valorTotal += produto.subTotal)
+
 			const precostring=new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
 		.format(total)
 			const carrinhopreco = document.querySelector('#carrinho-preco span')
