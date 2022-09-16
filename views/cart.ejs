@@ -114,14 +114,18 @@
 		select.addEventListener('input', function(evento){
 			
 			const selectid = evento.target.dataset.id
+
 			const produto = document.querySelector(`[data-cart='${selectid}']`);
 			const subtotal = produto.querySelector(".cart_total_price");
 			
-			const objetoServidor = carrinho[selectid];
-			const novoValorObjeto = +evento.target.value * objetoServidor.preco; 
+
+			const objetoServidor = carrinho[selectid]
+			const novoValorObjeto = +evento.target.value * objetoServidor.preco;
 			objetoServidor.quantidade = +evento.target.value;
-			objetoServidor.subTotal = novoValorObjeto;
-			
+			objetoServidor.subtotal = novoValorObjeto;
+
+			console.log(produto)
+
 			
 			
 			const valorFormat =  new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'})
