@@ -51,10 +51,10 @@
 							</div>
 							<td   class="cart_quantity">
 								<div class="cart_quantity_button">
-									<select data-id='<%= index %>' class="cart_quantity_input">
+									<select data-id='<%= index %>' class="cart_quantity_input" >
 										<% for( let index = 1; index < 11; index++ ) { %>
 										
-											<option value="<%= index %>"><%= index %> </option>
+											<option value="<%= index %>" <%= produto.quantidade === index?'selected': '' %> ><%= index %> </option>
 										<% } %>
 									</select>
 									
@@ -96,7 +96,7 @@
 							<li>Frete<span>Gratuito</span></li>
 							<li id="carrinho-total">Total <span><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(total)%></span></li>
 						</ul>
-						<a class="btn btn-default update" href="">Atualizar</a>
+						<button class="btn btn-default update" onclick="atualizaServidor()" >Atualizar</button>
 						<a class="btn btn-default check_out" href="">Finalizar</a>
 					</div>
 				</div>
@@ -122,9 +122,11 @@
 			const objetoServidor = carrinho[selectid]
 			const novoValorObjeto = +evento.target.value * objetoServidor.preco;
 			objetoServidor.quantidade = +evento.target.value;
-			objetoServidor.subtotal = novoValorObjeto;
+			objetoServidor.subTotal = novoValorObjeto;
 
 			console.log(produto)
+
+			atualizaServidor()
 
 			
 			
@@ -147,8 +149,23 @@
 		.format(total)
 			const carrinhopreco = document.querySelector('#carrinho-preco span')
 			const carrinhototal = document.querySelector('#carrinho-total span')
-			carrinhopreco.innerText=precostring
+			console.log()
+			carrinhopreco.innerText=`${precostring}`
 			carrinhototal.innerText=precostring
+			
+
+		}
+
+		function atualizaServidor(){
+			const carrinhoString = JSON.stringify({carrinho})
+			
+			fetch('/cart', {
+				method: 'PATCH',
+				body: carrinhoString,
+				headers: {
+					'Content-Type': 'application/json',
+				}
+			})
 
 		}
 
