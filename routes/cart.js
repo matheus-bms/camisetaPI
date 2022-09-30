@@ -20,6 +20,8 @@ router.get('/', controller.renderizarCart);
 router.patch('/', function(req, res){
     console.log(req.body)
     req.session.cart = req.body.carrinho
+    req.session.formaPgto = req.body.formaPgto
+    req.session.total = req.body.total
     res.send('/cart')
 })
 router.use(logado); 

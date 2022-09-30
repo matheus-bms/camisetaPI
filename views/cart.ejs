@@ -95,6 +95,13 @@
 							<li id="carrinho-preco">Carrinho<span><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(total)%></span></li>
 							<li>Frete<span>Gratuito</span></li>
 							<li id="carrinho-total">Total <span><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(total)%></span></li>
+							<li>Forma de Pagamento <span>
+								<select  name="formas" id="formas">
+									<% formas.forEach(forma => { %>
+									 <option value="<%= forma.id %>"><%= forma.nome %> </option>
+									<% }) %>
+								</select>
+							</span></li>
 						</ul>
 						<button class="btn btn-default update" onclick="atualizaServidor()" >Atualizar</button>
 						<a class="btn btn-default check_out" href="">Finalizar</a>
@@ -107,6 +114,7 @@
 	</section>
 	<script>
 		const carrinho = <%-JSON.stringify(cart) %>
+		let total = 0
 		let element = document.getElementsByClassName("cart_quantity_input")
 		element = Array.from(element)
 		element.forEach(select => {
@@ -140,7 +148,7 @@
 		})
 		});
 		function atualizaCarrinho(){
-			const total = carrinho.reduce((acumulador,item)=> acumulador + item.subTotal, 0);
+			 total = carrinho.reduce((acumulador,item)=> acumulador + item.subTotal, 0);
 			
 			// let valorTotal = 0 ;
 			// carrinho.forEach(produto => valorTotal += produto.subTotal)
@@ -157,7 +165,9 @@
 		}
 
 		function atualizaServidor(){
-			const carrinhoString = JSON.stringify({carrinho})
+			const formaPgto = document.querySelector('select#formas').value
+			
+			const carrinhoString = JSON.stringify({carrinho, formaPgto, total})
 			
 			fetch('/cart', {
 				method: 'PATCH',
