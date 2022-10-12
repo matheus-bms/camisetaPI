@@ -11,8 +11,8 @@ const { Router } = require('express');
 
 
 
-router.get('/login',  controller.formularioLogin);
-router.post('/login',validadorDelogin,errosMiddlewares, controller.fazerLogin);
+router.get('/',  controller.formularioLogin);
+router.post('/',validadorDelogin,errosMiddlewares, controller.fazerLogin);
 router.post('/cadastro',validationDeCadastro,errosMiddlewares, controller.store);
 
 

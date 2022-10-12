@@ -21,8 +21,6 @@ router.get('/404', controller.renderizar404);
 router.get('/blog-single', controller.renderizerBlogSingle);
 router.get('/blog', controller.renderizerBlog);
 router.use('/cart', cart);
-router.use('/login', controller.formularioLogin);
-router.use('/login', controller.fazerLogin);
 router.use('/produtos', controller.renderizarProdutos);
 router.use('/checkout',controller.renderizarCheckout);
 router.use('/favoritos', controller.renderizarFavoritos);

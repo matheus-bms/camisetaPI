@@ -16,6 +16,7 @@ router.get('/shop', controller.renderizarShop);
 
 
 router.get('/:id', cartValidacao, controller.addcart );
+router.use(logado); 
 router.get('/', controller.renderizarCart);
 router.patch('/', function(req, res){
     console.log(req.body)
@@ -24,7 +25,6 @@ router.patch('/', function(req, res){
     req.session.total = req.body.total
     res.send('/cart')
 })
-router.use(logado); 
 
 
 

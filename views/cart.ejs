@@ -96,7 +96,7 @@
 							<li>Frete<span>Gratuito</span></li>
 							<li id="carrinho-total">Total <span><%= new Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(total)%></span></li>
 							<li>Forma de Pagamento <span>
-								<select  name="formas" id="formas">
+								<select  name="formas" id="formas" onclick="atualizaCarrinho()">
 									<% formas.forEach(forma => { %>
 									 <option value="<%= forma.id %>"><%= forma.nome %> </option>
 									<% }) %>
@@ -104,7 +104,10 @@
 							</span></li>
 						</ul>
 						<button class="btn btn-default update" onclick="atualizaServidor()" >Atualizar</button>
-						<a class="btn btn-default check_out" href="">Finalizar</a>
+						<form action="/cart/checkout" method="post" class="d-inline">
+							<button class="btn btn-default check_out" >Finalizar</button>
+						</form>
+						
 					</div>
 				</div>
 			</div>
@@ -161,7 +164,7 @@
 			carrinhopreco.innerText=`${precostring}`
 			carrinhototal.innerText=precostring
 			
-
+			atualizaServidor();
 		}
 
 		function atualizaServidor(){

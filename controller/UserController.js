@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { Usuario, Produto, FormaDePagamento, Compra  } = require('../db/models')
+const { Usuario, Produto, FormaDePagamento, Compra, ProdutoHasCompra  } = require('../db/models')
 const fazerLogin = express.Router();
 const EXPIRE = 300 * 1000
 const {validationResult} = require('express-validator')
@@ -66,7 +66,7 @@ module.exports =  {
     delete users.senha
     console.log(req.session.User) 
     req.session.User = users  // ID: quando quiser exibir alguma coisa.
-    res.json(users);
+    res.redirect('/');
   },
   comprarAgora: function (req, res) {
     res.send('compras')
@@ -88,13 +88,25 @@ module.exports =  {
     res.render('checkout');
   },
   testeCheckout: async function (req, res) {
-    await Compra.create({
-      id_usuarios: 1, 
+    const minhacompra = await Compra.create({
+      id_usuarios: req.session.User.id, 
       total: req.session.total,
       id_FormaPagamento: req.session.formaPgto
 
     })
-    res.send('checkout');
+  for await (const produto of req.session.cart){
+    await ProdutoHasCompra.create({
+      id_compras:minhacompra.id,
+      id_produtos:produto.id,
+      quantidade:produto.quantidade
+    
+    });
+    
+
+  }
+  req.session.cart = [];
+  req.session.total = 0;
+    res.redirect('/cart');
   },
   renderizarCart: async  function (req, res) {
     const formas = await FormaDePagamento.findAll()

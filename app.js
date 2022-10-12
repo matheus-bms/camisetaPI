@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const Auth = require('./middlewares/Auth');
+const loginRouter = require('./routes/login');
 
 const app = express();
 
@@ -44,10 +44,9 @@ app.use((req, res, next)=> {
  next()
 })
 
-app.use(Auth)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', indexRouter);
+app.use('/login', loginRouter);
 app.use('/checkout', indexRouter);
 
 
